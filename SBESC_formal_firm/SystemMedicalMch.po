@@ -1,0 +1,38 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(7) & _f(20) & _f(10) & _f(15) & Operation_addTimes.1,(_f(3) => _f(21));
+_f(1) & _f(2) & _f(7) & _f(13) & _f(14) & _f(15) & _f(16) & _f(17) & _f(18) & Operation_injectsMedication.3,(_f(3) => _f(6));
+_f(1) & _f(2) & _f(7) & _f(13) & _f(14) & _f(15) & _f(16) & _f(17) & _f(18) & Operation_injectsMedication.2,(_f(3) => _f(19));
+_f(1) & _f(2) & _f(7) & _f(13) & _f(14) & _f(15) & _f(16) & _f(17) & _f(18) & Operation_injectsMedication.1,(_f(3) => _f(4));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & Operation_increaseFlow.2,(_f(3) => _f(12));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & Operation_increaseFlow.1,(_f(3) => _f(11));
+_f(1) & _f(2) & Initialisation.3,(_f(3) => _f(6));
+_f(1) & _f(2) & Initialisation.2,(_f(3) => _f(5));
+_f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((MAX_DOSE) = (100));
+"Invariant is preserved";
+((0) : (NATURAL));
+(({}) : (POW(NATURAL)));
+((100 * 0) <= ((100 * MAX_DOSE) + (MAX_DOSE * 5)));
+act_dose : INTEGER & 0 <= act_dose & ((act_dose) : (NATURAL)) & ((set_of_times) : (POW(NATURAL))) & ((work) : (BOOL)) & ((full_flag) : (BOOL)) & ((bubble_sensor) : (BOOL)) & ((100 * act_dose) <= ((100 * MAX_DOSE) + (MAX_DOSE * 5))) & ((((full_flag) = (TRUE))) => (((work) = (FALSE)))) & ((((work) = (TRUE))) => (((full_flag) = (FALSE))));
+(act_dose +1 <= MAX_DOSE);
+((full_flag) = (TRUE));
+((work) = (FALSE));
+(((act_dose + 1)) : (NATURAL));
+((100 * (act_dose + 1)) <= ((100 * MAX_DOSE) + (MAX_DOSE * 5)));
+curr_time : INTEGER & 0 <= curr_time & ((curr_time) : (NATURAL));
+(MAX_DOSE <= act_dose);
+((full_flag) = (FALSE));
+((work) = (TRUE));
+((curr_time) : (set_of_times));
+((bubble_sensor) = (FALSE));
+(((set_of_times - ({curr_time}))) : (POW(NATURAL)));
+new_time : INTEGER & 0 <= new_time & ((new_time) : (NATURAL));
+((((set_of_times) \/ (({new_time})))) : (POW(NATURAL)))
+END
+&
+THEORY EnumerateX
+END

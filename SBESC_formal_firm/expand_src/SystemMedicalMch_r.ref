@@ -1,0 +1,103 @@
+﻿/* SystemMedicalMch_r
+ * Author: lipef
+ * Creation date: 04/07/2025
+ */
+
+REFINEMENT SystemMedicalMch_r
+REFINES SystemMedicalMch
+
+
+ABSTRACT_VARIABLES
+    act_dose ,
+    set_of_times_ ,
+    work ,
+    full_flag ,
+    bubble_sensor
+
+INVARIANT
+    act_dose : NAT
+    & set_of_times_ : NAT --> NAT
+    & work : BOOL
+    & full_flag : BOOL
+    & bubble_sensor : BOOL
+
+    & ( ( 100 * act_dose ) <= ( 100 * MAX_DOSE + MAX_DOSE * 5 ) )
+    & ( ( full_flag = TRUE ) => ( work = FALSE ) )
+    & ( work = TRUE => full_flag = FALSE )
+
+INITIALISATION
+    act_dose := 0
+    || set_of_times_ := {}
+    || work := FALSE
+    || full_flag := FALSE
+    || bubble_sensor := FALSE
+
+
+OPERATIONS
+    increaseFlow =
+    PRE
+       act_dose < MAX_DOSE
+       & full_flag = TRUE
+       & work = FALSE
+    THEN
+       act_dose := act_dose + 1
+    END ;
+
+
+    checkIncreaseFlowWasDone =
+    PRE
+        act_dose >= MAX_DOSE
+    THEN
+        work := TRUE
+        || full_flag := FALSE
+    END ;
+
+
+    injectsMedication ( curr_time ) =
+    PRE
+        curr_time : NAT
+        & act_dose >= MAX_DOSE
+        & full_flag = FALSE
+        & work = TRUE
+        & card ( set_of_times_ ) > 0
+        & set_of_times_ ( 0 ) = curr_time
+        & bubble_sensor = FALSE // tratamento de erro será no refinamento
+    THEN
+        // injeta 
+        act_dose := 0
+        || set_of_times_ := set_of_times_ - { 0 |-> curr_time }
+    END ;
+
+    addTimes ( new_time ) =
+    PRE
+        new_time : NAT
+        & work = FALSE
+        & full_flag = FALSE
+    THEN
+        set_of_times_ := set_of_times_ \/ { card ( set_of_times_ ) |-> new_time }
+    END ;
+
+
+    startSystem =
+    PRE
+        work = FALSE
+        & full_flag = FALSE
+    THEN
+         work := FALSE
+         || full_flag := TRUE
+    END ;
+
+
+    sendLog ( curr_time ) =
+    PRE
+        work = FALSE
+        & full_flag = FALSE
+        & curr_time : NAT
+        & card ( set_of_times_ ) > 0 => not ( set_of_times_ ( 0 ) = curr_time )
+    THEN
+         // send log
+         work := FALSE
+    END ;
+
+
+ END

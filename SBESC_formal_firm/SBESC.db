@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="C:\Users\lipef\Documents\codes\SBESC\expand_src" old_decomp_dir="C:\Users\lipef\Documents\codes\SBESC\src">
+        <!-- Definition directory list -->
+        <!-- Proof mechanisms -->
+        <!-- Component file list -->
+        <component_file path="C:/Users/lipef/Documents/codes" name="SystemMedicalMch" suffix="mch" user="lipef">
+            <component name="SystemMedicalMch" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/lipef/Documents/codes" name="SystemMedicalMch_r" suffix="ref" user="lipef">
+            <component name="SystemMedicalMch_r" type="refinement" />
+        </component_file>
+    </project>
+</db_xml>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Frontend TS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Enviar Dados</h1>
+
+    <label for="texto">Paciente:</label>
+    <input type="text" id="texto" />
+
+    <label for="seletor">Selecione:</label>
+    <select id="seletor">
+      <option value="classe1">Antibiótico</option>
+      <option value="classe2">Insulina</option>
+      <option value="classe3">Morfina</option>
+    </select>
+
+    <label for="horario">Horário:</label>
+    <div class="input-horario">
+      <input type="time" id="horario" />
+      <button id="adicionarHorario">Adicionar</button>
+    </div>
+
+    <h3>Horários adicionados:</h3>
+    <ul id="listaHorarios" class="lista-horarios"></ul>
+
+    <div class="grupo-botoes">
+      <button id="btn1">1</button>
+      <button id="btn2">2</button>
+      <button id="btn3">3</button>
+    </div>
+
+    <div class="centralizar-enviar">
+      <button id="enviar">Enviar</button>
+    </div>
+
+    <p id="resposta"></p>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

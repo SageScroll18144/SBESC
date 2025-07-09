@@ -1,0 +1,48 @@
+THEORY BalanceX IS
+SystemMedicalMch,8,0,0,5,0,0,0;
+Initialisation,3,0,0,2,0,0,0;
+Operation_addTimes,1,0,0,1,0,0,0;
+Operation_increaseFlow,2,0,0,1,0,0,0;
+Operation_injectsMedication,2,0,0,1,0,0,0
+END
+&
+THEORY ProofState IS
+Proved(0);
+Unproved;
+Proved(0);
+Unproved;
+Proved(0);
+Unproved;
+Proved(0);
+Proved(0)
+END
+&
+THEORY MethodList IS
+pr;
+?;
+pr;
+?;
+pr;
+?;
+pr;
+pr
+END
+&
+THEORY PassList IS
+Force(0),?;
+Force(0),(?; 0; 1);
+Force(0),?;
+Force(0),(?; 0; 1);
+Force(0),?;
+Force(0),(?; 0; 1);
+Force(0),?;
+Force(0),?
+END
+&
+THEORY Status IS
+SystemMedicalMch,8,0,5,0,0,0;
+Initialisation,3,0,2,0,0,0;
+Operation_addTimes,1,0,1,0,0,0;
+Operation_increaseFlow,2,0,1,0,0,0;
+Operation_injectsMedication,2,0,1,0,0,0
+END

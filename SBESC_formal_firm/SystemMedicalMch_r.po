@@ -1,0 +1,75 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(7) & _f(8) & _f(11) & _f(22) & _f(35) & _f(21) & _f(36) & Precondition_sendLog.4,(_f(12) => _f(38));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(11) & _f(22) & _f(35) & _f(21) & _f(36) & Precondition_sendLog.3,(_f(12) => _f(37));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(11) & _f(22) & _f(35) & _f(21) & _f(36) & Precondition_sendLog.2,(_f(12) => _f(26));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(11) & _f(22) & _f(35) & _f(21) & _f(36) & Precondition_sendLog.1,(_f(12) => _f(15));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(11) & _f(22) & Precondition_startSystem.2,(_f(12) => _f(26));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(11) & _f(22) & Precondition_startSystem.1,(_f(12) => _f(15));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(32) & _f(11) & _f(22) & _f(32) & _f(15) & _f(26) & Operation_addTimes.2,(_f(3) => _f(34));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(32) & _f(11) & _f(22) & _f(32) & _f(15) & _f(26) & Operation_addTimes.1,(_f(3) => _f(33));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(32) & _f(11) & _f(22) & Precondition_addTimes.2,(_f(12) => _f(26));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(32) & _f(11) & _f(22) & Precondition_addTimes.1,(_f(12) => _f(15));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & _f(21) & _f(20) & _f(26) & _f(27) & _f(28) & _f(29) & Operation_injectsMedication.4,(_f(3) => _f(6));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & _f(21) & _f(20) & _f(26) & _f(27) & _f(28) & _f(29) & Operation_injectsMedication.3,(_f(3) => _f(31));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & _f(21) & _f(20) & _f(26) & _f(27) & _f(28) & _f(29) & Operation_injectsMedication.2,(_f(3) => _f(4));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & _f(21) & _f(20) & _f(26) & _f(27) & _f(28) & _f(29) & Operation_injectsMedication.1,(_f(3) => _f(30));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & Precondition_injectsMedication.5,(_f(12) => _f(29));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & Precondition_injectsMedication.4,(_f(12) => _f(28));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & Precondition_injectsMedication.3,(_f(12) => _f(27));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & Precondition_injectsMedication.2,(_f(12) => _f(26));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(21) & _f(19) & _f(22) & _f(23) & _f(24) & _f(25) & Precondition_injectsMedication.1,(_f(12) => _f(20));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(19) & Precondition_checkIncreaseFlowWasDone.1,(_f(12) => _f(20));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(13) & _f(14) & _f(15) & Operation_increaseFlow.3,(_f(3) => _f(18));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(13) & _f(14) & _f(15) & Operation_increaseFlow.2,(_f(3) => _f(17));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & _f(13) & _f(14) & _f(15) & Operation_increaseFlow.1,(_f(3) => _f(16));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & Precondition_increaseFlow.3,(_f(12) => _f(15));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & Precondition_increaseFlow.2,(_f(12) => _f(14));
+_f(1) & _f(2) & _f(7) & _f(8) & _f(9) & _f(10) & _f(11) & Precondition_increaseFlow.1,(_f(12) => _f(13));
+_f(1) & _f(2) & Initialisation.3,(_f(3) => _f(6));
+_f(1) & _f(2) & Initialisation.2,(_f(3) => _f(5));
+_f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((MAX_DOSE) = (100));
+"Refinement is correct";
+((0) : (NAT));
+(({}) : (POW(NAT)));
+((100 * 0) <= ((100 * MAX_DOSE) + (MAX_DOSE * 5)));
+act_dose$1 : INTEGER & 0 <= act_dose$1 & ((act_dose$1) : (NATURAL)) & ((set_of_times$1) : (POW(NATURAL))) & ((work$1) : (BOOL)) & ((full_flag$1) : (BOOL)) & ((log_flag$1) : (BOOL)) & ((bubble_sensor$1) : (BOOL)) & ((100 * act_dose$1) <= ((100 * MAX_DOSE) + (MAX_DOSE * 5))) & ((((full_flag$1) = (TRUE))) => (((work$1) = (FALSE)))) & ((((work$1) = (TRUE))) => (((full_flag$1) = (FALSE))));
+((act_dose) = (act_dose$1)) & ((set_of_times) = (set_of_times$1)) & ((work) = (work$1)) & ((full_flag) = (full_flag$1)) & ((log_flag) = (log_flag$1)) & ((bubble_sensor) = (bubble_sensor$1)) & ((act_dose$1) : (NAT)) & ((set_of_times$1) : (POW(NAT))) & ((work$1) : (BOOL)) & ((full_flag$1) : (BOOL)) & ((log_flag$1) : (BOOL)) & ((bubble_sensor$1) : (BOOL)) & ((100 * act_dose$1) <= ((100 * MAX_DOSE) + (MAX_DOSE * 5))) & ((((full_flag$1) = (TRUE))) => (((work$1) = (FALSE)))) & ((((work$1) = (TRUE))) => (((full_flag$1) = (FALSE))));
+(act_dose +1 <= MAX_DOSE);
+((full_flag) = (TRUE));
+((work) = (FALSE));
+"Precondition can be deduced";
+(act_dose$1 +1 <= MAX_DOSE);
+((full_flag$1) = (TRUE));
+((work$1) = (FALSE));
+(((act_dose + 1)) = ((act_dose$1 + 1)));
+(((act_dose$1 + 1)) : (NAT));
+((100 * (act_dose$1 + 1)) <= ((100 * MAX_DOSE) + (MAX_DOSE * 5)));
+(MAX_DOSE <= act_dose);
+(MAX_DOSE <= act_dose$1);
+curr_time : INTEGER & 0 <= curr_time & ((curr_time) : (NATURAL));
+((full_flag) = (FALSE));
+((work) = (TRUE));
+((curr_time) : (set_of_times));
+((bubble_sensor) = (FALSE));
+((full_flag$1) = (FALSE));
+((work$1) = (TRUE));
+((curr_time) : (set_of_times$1));
+((bubble_sensor$1) = (FALSE));
+(((set_of_times - ({curr_time}))) = ((set_of_times$1 - ({curr_time}))));
+(((set_of_times$1 - ({curr_time}))) : (POW(NAT)));
+new_time : INTEGER & 0 <= new_time & ((new_time) : (NATURAL));
+((((set_of_times) \/ (({new_time})))) = (((set_of_times$1) \/ (({new_time})))));
+((((set_of_times$1) \/ (({new_time})))) : (POW(NAT)));
+((log_flag) = (TRUE));
+not(((curr_time) : (set_of_times)));
+((log_flag$1) = (TRUE));
+not(((curr_time) : (set_of_times$1)))
+END
+&
+THEORY EnumerateX
+END
