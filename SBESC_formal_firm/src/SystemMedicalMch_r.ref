@@ -25,7 +25,7 @@ INVARIANT
     & ( ( full_flag = TRUE ) => ( work = FALSE ) )
     & ( work = TRUE => full_flag = FALSE )
     
-    & !(tt) . (tt : NAT => tt : set_of_times) 
+    & !(tt) . (tt : ran(set_of_times_) => tt : set_of_times) 
 
 INITIALISATION
     act_dose := 0
