@@ -16,7 +16,7 @@ VARIABLES
 
 INVARIANT
     act_dose : NAT
-    & set_of_times_ : NAT --> NAT
+    & set_of_times_ : (0..99) --> NAT
     & work : BOOL
     & full_flag : BOOL
     & bubble_sensor : BOOL
@@ -29,7 +29,7 @@ INVARIANT
 
 INITIALISATION
     act_dose := 0
-    || set_of_times_ := {}
+    || set_of_times_ := (0..99) * {0}
     || work := FALSE
     || full_flag := FALSE
     || bubble_sensor := FALSE
@@ -41,7 +41,7 @@ OPERATIONS
        act_dose < MAX_DOSE
        & full_flag = TRUE
        & work = FALSE
-       & card(set_of_times_) > 0
+       & set_of_times_(0) /= 0
     THEN
        act_dose := act_dose + 1
     END ;
@@ -68,7 +68,7 @@ OPERATIONS
     PRE
         full_flag = TRUE
         & work = FALSE
-        & card(set_of_times_) = 0
+        & set_of_times_(0) = 0
     THEN
         full_flag := FALSE
         || work := FALSE
@@ -80,14 +80,13 @@ OPERATIONS
         & act_dose >= MAX_DOSE
         & full_flag = FALSE
         & work = TRUE
-        & card ( set_of_times_ ) > 0
+        & set_of_times_(0) /= 0
         & set_of_times_ ( 0 ) = curr_time
         & bubble_sensor = FALSE
-        & card(set_of_times_) > 0
     THEN
         // injeta 
         act_dose := 0
-        || set_of_times_ := set_of_times_ - { 0 |-> curr_time }
+        || set_of_times_ := (0..99) * {0} <+ { xx,yy | xx : 0..99 & yy : NAT & (xx + 1) |-> yy : set_of_times_}
         || full_flag := TRUE
         || work := FALSE
     END ;
@@ -98,7 +97,7 @@ OPERATIONS
         & work = FALSE
         & full_flag = FALSE
     THEN
-        set_of_times_ := set_of_times_ \/ { card ( set_of_times_ ) |-> new_time }
+        set_of_times_(card(set_of_times_ - (set_of_times_ /\ ((0..99) * {0})))) := new_time
     END ;
 
 
@@ -117,7 +116,7 @@ OPERATIONS
         work = FALSE
         & full_flag = FALSE
         & curr_time : NAT
-        & card ( set_of_times_ ) > 0 => not ( set_of_times_ ( 0 ) = curr_time )
+        & not ( set_of_times_ ( 0 ) = curr_time )
     THEN
          // send log
          work := FALSE
