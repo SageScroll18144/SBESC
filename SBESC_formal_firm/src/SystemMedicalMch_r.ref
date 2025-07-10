@@ -7,7 +7,7 @@ REFINEMENT SystemMedicalMch_r
 REFINES SystemMedicalMch
 
 
-ABSTRACT_VARIABLES
+VARIABLES
     act_dose ,
     set_of_times_ ,
     work ,
@@ -24,6 +24,8 @@ INVARIANT
     & ( ( 100 * act_dose ) <= ( 100 * MAX_DOSE + MAX_DOSE * 5 ) )
     & ( ( full_flag = TRUE ) => ( work = FALSE ) )
     & ( work = TRUE => full_flag = FALSE )
+    
+    & !(tt) . (tt : NAT => tt : set_of_times) 
 
 INITIALISATION
     act_dose := 0
