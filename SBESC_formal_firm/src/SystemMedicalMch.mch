@@ -9,9 +9,9 @@ CONCRETE_CONSTANTS
     MAX_DOSE
 
 PROPERTIES
-    MAX_DOSE = 100
+    MAX_DOSE = 10
 
-ABSTRACT_VARIABLES
+VARIABLES
     act_dose ,
     set_of_times ,
     work ,
@@ -42,6 +42,7 @@ OPERATIONS
        act_dose < MAX_DOSE
        & full_flag = TRUE
        & work = FALSE
+       & card(set_of_times) > 0
     THEN
        act_dose := act_dose + 1
     END ;
@@ -49,9 +50,20 @@ OPERATIONS
     checkIncreaseFlowWasDone =
     PRE
         act_dose >= MAX_DOSE
+        & bubble_sensor = FALSE
     THEN
         work := TRUE
         || full_flag := FALSE
+    END ;
+    
+    checkSystemWasDone =
+    PRE
+        full_flag = TRUE
+        & work = FALSE
+        & card(set_of_times) = 0
+    THEN
+        full_flag := FALSE
+        || work := FALSE
     END ;
 
     injectsMedication ( curr_time ) =
@@ -62,10 +74,13 @@ OPERATIONS
         & work = TRUE
         & curr_time : set_of_times
         & bubble_sensor = FALSE
+        & card(set_of_times) > 0
     THEN
         // injeta 
         act_dose := 0
         || set_of_times := set_of_times - { curr_time }
+        || full_flag := TRUE
+        || work := FALSE
     END ;
 
     addTimes ( new_time ) =
@@ -96,5 +111,7 @@ OPERATIONS
          // send log
          work := FALSE
     END
+    
+    
 
 END
