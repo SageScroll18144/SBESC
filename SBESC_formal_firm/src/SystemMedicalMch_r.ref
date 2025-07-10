@@ -39,19 +39,38 @@ OPERATIONS
        act_dose < MAX_DOSE
        & full_flag = TRUE
        & work = FALSE
+       & card(set_of_times_) > 0
     THEN
        act_dose := act_dose + 1
     END ;
 
-
     checkIncreaseFlowWasDone =
     PRE
         act_dose >= MAX_DOSE
+        & bubble_sensor = FALSE
     THEN
         work := TRUE
         || full_flag := FALSE
     END ;
-
+    
+    checkBubble =
+    PRE
+        act_dose >= MAX_DOSE
+        & bubble_sensor = TRUE
+    THEN
+        work := TRUE
+        || full_flag := TRUE
+    END ;
+    
+    checkSystemWasDone = 
+    PRE
+        full_flag = TRUE
+        & work = FALSE
+        & card(set_of_times_) = 0
+    THEN
+        full_flag := FALSE
+        || work := FALSE
+    END ;
 
     injectsMedication ( curr_time ) =
     PRE
@@ -62,10 +81,13 @@ OPERATIONS
         & card ( set_of_times_ ) > 0
         & set_of_times_ ( 0 ) = curr_time
         & bubble_sensor = FALSE
+        & card(set_of_times_) > 0
     THEN
         // injeta 
         act_dose := 0
         || set_of_times_ := set_of_times_ - { 0 |-> curr_time }
+        || full_flag := TRUE
+        || work := FALSE
     END ;
 
     addTimes ( new_time ) =
@@ -99,5 +121,14 @@ OPERATIONS
          work := FALSE
     END ;
 
-
+    sendWarning = 
+    PRE
+        work = TRUE
+        & full_flag = TRUE
+    THEN
+        // envia um warning
+        
+        work := FALSE
+        || full_flag := FALSE
+    END
  END

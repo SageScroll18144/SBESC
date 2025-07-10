@@ -66,6 +66,15 @@ OPERATIONS
         || work := FALSE
     END ;
 
+    checkBubble =
+    PRE
+        act_dose >= MAX_DOSE
+        & bubble_sensor = TRUE
+    THEN
+        work := TRUE
+        || full_flag := TRUE
+    END ;
+
     injectsMedication ( curr_time ) =
     PRE
         curr_time : NATURAL
@@ -110,8 +119,17 @@ OPERATIONS
     THEN
          // send log
          work := FALSE
+    END ;
+    
+    sendWarning = 
+    PRE
+        work = TRUE
+        & full_flag = TRUE
+    THEN
+        // envia um warning
+        
+        work := FALSE
+        || full_flag := FALSE
     END
-    
-    
 
 END
