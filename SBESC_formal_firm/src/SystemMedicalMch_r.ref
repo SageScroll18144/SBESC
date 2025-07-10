@@ -77,6 +77,7 @@ OPERATIONS
     injectsMedication ( curr_time ) =
     PRE
         curr_time : NAT
+        & curr_time /= 0
         & act_dose >= MAX_DOSE
         & full_flag = FALSE
         & work = TRUE
@@ -94,6 +95,7 @@ OPERATIONS
     addTimes ( new_time ) =
     PRE
         new_time : NAT
+        & new_time /= 0
         & work = FALSE
         & full_flag = FALSE
     THEN
