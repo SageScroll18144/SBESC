@@ -88,8 +88,8 @@ OPERATIONS
         // injeta 
         act_dose := 0
         || set_of_times := set_of_times - { curr_time }
-        || full_flag := FALSE
-        || work := TRUE
+        || full_flag := TRUE
+        || work := FALSE
     END ;
 
     addTimes ( new_time ) =
